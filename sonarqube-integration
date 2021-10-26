@@ -13,6 +13,7 @@ stage('Initialize') {
         ''' 
       }
   }
+  stages{
     stage('SonarQube Analysis'){
     steps {
       WithSonarQubeEnv('sq1'){
@@ -20,5 +21,6 @@ stage('Initialize') {
       }  
     }
   }
+}
 }
 }
