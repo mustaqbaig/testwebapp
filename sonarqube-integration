@@ -13,7 +13,7 @@ stage ('Initialize') {
         ''' 
       }
   }
-    stage ('scan'){
+    stage ('SonarQube Analysis'){
     def mvnHome =tool name: 'maven-3.8.2', type 'maven'
       WithSonarQubeEnv('sq1'){
          sh "${mvnHome}/bin/mvn sonar:sonar"
