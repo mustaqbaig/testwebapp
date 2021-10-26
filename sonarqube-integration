@@ -14,9 +14,9 @@ stage ('Initialize') {
       }
   }
     stage ('scan'){
-    steps{
+    def mvnHome =tool name: 'maven-3.8.2', type 'maven'
       WithSonarQubeEnv('sq1'){
-         sh "mvn sonar:sonar"
+         sh "${mvnHome}/bin/mvn sonar:sonar"
       }  
     }
   }
