@@ -1,0 +1,36 @@
+pipeline {
+  agent any
+  environment {
+    PATH = "$PATH:/opt/apache-maven-3.8.2/bin"
+  }
+  //stages {
+    //  stage('getcode'){
+      //    steps{
+        //      git 'https://code.caesars-dev.com/Rewards-as-a-Service/RaaS-NodeJS-MicroService-ManageContactType-Beta.git'
+       //   }
+    //  }
+      
+      
+  //  stage ('Initialize') {
+//      steps {
+  //      sh '''
+    //           echo "PATH = ${PATH}"
+      //           echo "M2_HOME = ${M2_HOME}"
+    //    ''' 
+  //    }
+//  }
+
+stage ('Build'){
+    steps{
+        sh 'mvn clean package'
+    }
+}
+    stage ('scan'){
+    steps{
+      WithSonarQubeEnv('sq1'){
+         sh "mvn sonar:sonar"
+      }  
+    }
+  }
+}
+}
