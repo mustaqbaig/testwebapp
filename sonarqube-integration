@@ -4,12 +4,15 @@ pipeline {
     PATH = "$PATH:/opt/apache-maven-3.8.2/bin"
   }
   
-stages{
-stage ('Build'){
-    steps{
-        sh 'mvn clean package'
-    }
-}
+Stages{
+stage ('Initialize') {
+      steps {
+        sh '''
+            echo "PATH = ${PATH}"
+                 echo "M2_HOME = ${M2_HOME}"
+        ''' 
+      }
+  }
     stage ('scan'){
     steps{
       WithSonarQubeEnv('sq1'){
