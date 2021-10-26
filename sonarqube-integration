@@ -13,7 +13,7 @@ stage('Initialize') {
         ''' 
       }
   }
-  stages {
+  stage {
     stage('SonarQube Analysis'){
     steps {
     def mvnHome =tool name: 'maven-3.8.2', type 'maven'
