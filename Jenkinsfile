@@ -23,17 +23,17 @@ pipeline {
     //}
        stage ('Build') {
       steps {
-      sh 'mvn clean package'
+      sh 'mvn clean package -e'
        }
     }
     
-    stage ('Deploy-To-Tomcat') {
-            steps {
-           sshagent(['tomcat']) {
-                sh 'scp -o StrictHostKeyChecking=no target/*.war ubuntu@172.31.26.96:/opt/tomcat/webapps/webapp.war'
-              }      
-           }       
-    }
+    //stage ('Deploy-To-Tomcat') {
+           // steps {
+           //sshagent(['tomcat']) {
+             //   sh 'scp -o StrictHostKeyChecking=no target/*.war ubuntu@172.31.26.96:/opt/tomcat/webapps/webapp.war'
+            //  }      
+       //    }       
+   // }
     
     
    // stage ('DAST') {
