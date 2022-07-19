@@ -27,13 +27,13 @@ pipeline {
        }
     }
     
-   // stage ('Deploy-To-Tomcat') {
-     //       steps {
-       //    sshagent(['tomcat']) {
-         //       sh 'scp -o StrictHostKeyChecking=no target/*.war ubuntu@3.88.155.32:/opt/tomcat/webapps/webapp.war'
-           //  }      
-     //      }       
-   // }
+   stage ('Deploy-To-Tomcat') {
+         steps {
+           sshagent(['tomcat']) {
+                sh 'scp -o StrictHostKeyChecking=no target/*.war ubuntu@3.88.155.32:/opt/tomcat/webapps/webapp.war'
+          }      
+      }       
+    }
     
     
     stage ('DAST') {
