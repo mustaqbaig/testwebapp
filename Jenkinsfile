@@ -27,21 +27,21 @@ pipeline {
        }
     }
     
-    stage ('Deploy-To-Tomcat') {
-            steps {
-           sshagent(['tomcat']) {
-                sh 'scp -o StrictHostKeyChecking=no target/*.war ubuntu@3.88.155.32:/opt/tomcat/webapps/webapp.war'
-             }      
-           }       
-    }
+   // stage ('Deploy-To-Tomcat') {
+     //       steps {
+       //    sshagent(['tomcat']) {
+         //       sh 'scp -o StrictHostKeyChecking=no target/*.war ubuntu@3.88.155.32:/opt/tomcat/webapps/webapp.war'
+           //  }      
+     //      }       
+   // }
     
     
-   // stage ('DAST') {
-     // steps {
-       // sshagent(['zap']) {
-         //sh 'ssh -o  StrictHostKeyChecking=no ubuntu@172.31.28.9 "docker run -t owasp/zap2docker-stable zap-baseline.py -t http://172.31.26.96:8080/webapp/" || true'
-      //  }
-       //}
-    // }
+    stage ('DAST') {
+      steps {
+        sshagent(['zap']) {
+         sh 'ssh -o  StrictHostKeyChecking=no ubuntu@172.31.28.9 "docker run -t owasp/zap2docker-stable zap-baseline.py -t http://172.31.26.96:8080/webapp/" || true'
+        }
+     }
+   }
   }
   }
