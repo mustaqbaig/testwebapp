@@ -12,6 +12,23 @@ pipeline {
             ''' 
      }
     }
+    stage ('Check-Git-Secrets') {
+      steps {
+        sh 'rm trufflehog || true'
+        sh 'docker run gesellix/trufflehog --json https://github.com/mustaqbaig/testwebapp.git > trufflehog'
+        sh 'cat trufflehog'
+      }
+     } 
+    
+     stage ('Soruce Compositionn Analysis'){
+         steps{
+         sh 'rm owasp* || true'
+         sh 'wget "https://raw.githubusercontent.com/mustaqbaig/testwebapp/master/owasp-dependency-check.sh" '
+         sh 'chmod +x owasp-dependency-check.sh'
+         sh 'bash owasp-dependency-check.sh'
+         sh 'cat /var/lib/jenkins/OWASP-Dependency-Check/reports/dependency-check-report.xml'
+         }
+     }
     
     stage ('SAST') {
       steps {
@@ -21,6 +38,7 @@ pipeline {
         }
      }
     }
+    
        stage ('Build') {
       steps {
       sh 'mvn clean package -e'
