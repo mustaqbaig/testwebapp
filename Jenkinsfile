@@ -20,7 +20,7 @@ pipeline {
       }
      } 
     
-     stage ('Soruce Compositionn Analysis'){
+     stage ('Source Composition Analysis'){
          steps{
          sh 'rm owasp* || true'
          sh 'wget "https://raw.githubusercontent.com/mustaqbaig/testwebapp/master/owasp-dependency-check.sh" '
