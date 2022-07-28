@@ -8,9 +8,11 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Devsecops Course Learning by Shahid</title>
+    <title>Devsecops Course Learning by Mustaq</title>
 
-
+    <!-- Username: admin and Password: password -->
+    <!-- CCDetails: 1234123412341234, CVV: 123 -->
+    
     <!-- Custom styles for this template -->
     <link href="jumbotron.css" rel="stylesheet">
 
