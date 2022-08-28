@@ -10,18 +10,16 @@
 
     <title>Devsecops Course Learning by Mustaq</title>
 
-    <!-- Username: admin and Password: password -->
-    <!-- CCDetails: 1234123412341234, CVV: 123 -->
+ 
+    <!-- Api KEY = "34123412341234" -->
     <!-- key="4324324324" -->
     
     <!-- Custom styles for this template -->
     <link href="jumbotron.css" rel="stylesheet">
-    <!-- Username: admin and Password: password -->
-    <!-- CCDetails: 1234123412341234, CVV: 123 -->
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <!-- Key=4324324324 -->
+   
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <!-- encryptkey="xe9e@df$#$" -->
