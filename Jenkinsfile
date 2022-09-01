@@ -73,7 +73,7 @@ pipeline {
     
    stage ('PortScan') {
       steps {
-         sh 'sudo python3 /home/ubuntu/Nettacker/nettacker.py -i 54.146.224.144 -m port_scan -o /home/ubuntu/Nettacker/Report.json'
+         sh -S 'python3 /home/ubuntu/Nettacker/nettacker.py -i 54.146.224.144 -m port_scan -o /home/ubuntu/Nettacker/Report.json'
         }
      }
 
