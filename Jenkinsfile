@@ -7,7 +7,8 @@ pipeline {
     stage ('Commit') {
       steps {
       sh '''
-                    echo "PATH = ${PATH}"
+      set +e
+                   echo "PATH = ${PATH}"
                    echo "M2_HOME = ${M2_HOME}"
             ''' 
      }
@@ -17,7 +18,6 @@ pipeline {
       //  sh 'rm trufflehog || true'
       //  sh 'docker run gesellix/trufflehog --regex --entropy FALSE --json https://github.com/mustaqbaig/mutillidae.git > trufflehog'
         sh 'trufflehog --regex --entropy FALSE https://github.com/webpwnized/mutillidae'
-        set +e
       // sh 'cat /home/ubuntu/threort1'
    
       }
