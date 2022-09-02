@@ -15,7 +15,7 @@ pipeline {
     stage ('Check-Secrets-Leakage') {
       steps {
         sh 'rm trufflehog || true'
-        sh 'docker run gesellix/trufflehog --regex --entropy FALSE --json https://github.com/mustaqbaig/testwebapp.git > trufflehog'
+        sh 'docker run gesellix/trufflehog --regex --entropy FALSE --json https://github.com/mustaqbaig/mutillidae.git > trufflehog'
         sh 'cat trufflehog'
    
       }
