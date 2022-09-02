@@ -22,7 +22,7 @@ pipeline {
       }
      } 
     
-     stage ('Software Composition Analysis'){
+     stage ('SCA'){
          steps{
          sh 'rm owasp* || true'
          sh 'wget "https://raw.githubusercontent.com/mustaqbaig/testwebapp/master/owasp-dependency-check.sh" '
@@ -47,7 +47,7 @@ pipeline {
        }
     }
     
-   stage ('Deploy-To-Tomcat') {
+   stage ('Deploy') {
          steps {
            sshagent(['tomcat']) {
                 sh 'scp -o StrictHostKeyChecking=no target/*.war ubuntu@54.146.224.144:/opt/tomcat/webapps/webapp.war'
