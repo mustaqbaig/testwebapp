@@ -4,7 +4,7 @@ pipeline {
   maven 'maven1'
   }
   stages {
-    stage ('Initialize') {
+    stage ('Commit') {
       steps {
       sh '''
                     echo "PATH = ${PATH}"
@@ -15,8 +15,9 @@ pipeline {
     stage ('Check-Secrets-Leakage') {
       steps {
         sh 'rm trufflehog || true'
-        sh 'docker run gesellix/trufflehog --json https://github.com/mustaqbaig/testwebapp.git > trufflehog'
-        sh 'cat trufflehog'
+        sh 'docker run gesellix/trufflehog --regex --entropy FALSE --json https://github.com/mustaqbaig/testwebapp.git > trufflehog'
+        sh 'cat trufflehog
+   
       }
      } 
     
@@ -71,7 +72,7 @@ pipeline {
 
     }
     
-   stage ('PortScan') {
+   stage ('Port & Service Scan') {
       steps {
       //  sh 'chmod +x /home/ubuntu/Nettacker/nettacker.py'
     //     sh 'python3 /home/ubuntu/Nettacker/nettacker.py -i 54.146.224.144 -m port_scan -o /home/ubuntu/Nettacker/Report.json'
