@@ -16,7 +16,7 @@ pipeline {
       steps {
         sh 'rm trufflehog || true'
       //  sh 'docker run gesellix/trufflehog --regex --entropy FALSE --json https://github.com/mustaqbaig/mutillidae.git > trufflehog'
-        sh 'sudo trufflehog git -j https://github.com/webpwnized/mutillidae.git'
+        sh 'trufflehog --regex --entropy FALSE https://github.com/webpwnized/mutillidae'
         sh 'cat trufflehog'
    
       }
